@@ -1,16 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Component, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MenuController } from '@ionic/angular/standalone';
+import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonMenuButton
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-menu',
+  standalone: true,
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
+  styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
-
-  constructor(private menu: MenuController) { }
-
-  ngOnInit() {}
+export class MenuComponent {
+  private menu = inject(MenuController);
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -25,5 +32,4 @@ export class MenuComponent implements OnInit {
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
   }
-
 }

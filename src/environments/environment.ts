@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   catUrl: 'https://api.thecatapi.com/v1/images/search',
   weatherURL: 'https://api.openweathermap.org/data/2.5/forecast',
-  weatherAPIKey: '7932ec4e74bf50c9144d00692208c450'
+  weatherAPIKey: '38d8a0c1f6552e12e4b664fdef007b04'
 };
 
 /*

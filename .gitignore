@@ -31,3 +31,7 @@ npm-debug.log*
 /www
 # rebuild mannually
 /android
+# Angular CLI cache
+.angular/
+# Local Environment
+.env

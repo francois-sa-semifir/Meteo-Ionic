@@ -1,16 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-menu-button menu="sideMenu"></ion-menu-button>
+    <ion-menu-button slot="start" menu="sideMenu"></ion-menu-button>
     <ion-title>Metéo</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <form (ngSubmit)='getWeatherByCity()'>
     <ion-item>
-      <ion-label>Ville</ion-label>
-      <ion-input [(ngModel)]='city' name='city'></ion-input>
-      <ion-button type="sumbit">OK</ion-button>
-      <ion-button type='button' (click)="getWeatherByLocation()"><ion-icon name="pin"></ion-icon></ion-button>
+      <ion-input label="Ville" label-placement="stacked" [(ngModel)]='city' name='city'
+        placeholder="Entrez une ville"></ion-input>
+      <ion-button type="submit" slot="end">OK</ion-button>
+      <ion-button type='button' slot="end" (click)="getWeatherByLocation()">
+        <ion-icon name="pin"></ion-icon>
+      </ion-button>
     </ion-item>
   </form>
   <div *ngIf="weather">

@@ -1,5 +1,5 @@
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 
 const URL = `${environment.weatherURL}?appid=${environment.weatherAPIKey}&lang=fr&units=metric`;
@@ -8,14 +8,13 @@ const URL = `${environment.weatherURL}?appid=${environment.weatherAPIKey}&lang=f
   providedIn: 'root'
 })
 export class MeteoService {
+  private http = inject(HttpClient);
 
-  constructor(private http: HttpClient) { }
-
-  getWeatherByCity(city: string){
-    return this.http.get(`${URL}&q=${city}`, {observe: 'response'});
+  getWeatherByCity(city: string) {
+    return this.http.get(`${URL}&q=${city}`, { observe: 'response' });
   }
 
-  getWeatherByLocation(coords: GeolocationCoordinates){
+  getWeatherByLocation(coords: { latitude: number; longitude: number }) {
     return this.http.get(`${URL}&lat=${coords.latitude}&lon=${coords.longitude}`);
   }
 }
