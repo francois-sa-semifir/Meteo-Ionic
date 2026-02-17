@@ -9,12 +9,12 @@ describe('MeteoCardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MeteoCardComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), MeteoCardComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(MeteoCardComponent);
     component = fixture.componentInstance;
+    component.weather = { dt_txt: '2023-10-01 12:00:00', main: { temp: 20 }, weather: [{ icon: '01d' }], wind: { speed: 10 } };
     fixture.detectChanges();
   }));
 

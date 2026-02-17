@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 
 import { MeteoComponent } from './meteo.component';
@@ -9,8 +10,8 @@ describe('MeteoComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MeteoComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), MeteoComponent],
+      providers: [provideHttpClient()]
     }).compileComponents();
 
     fixture = TestBed.createComponent(MeteoComponent);

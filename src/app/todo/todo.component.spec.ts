@@ -9,8 +9,7 @@ describe('TodoComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), TodoComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TodoComponent);
