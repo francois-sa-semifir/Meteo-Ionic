@@ -8,15 +8,19 @@
   <form (ngSubmit)='getWeatherByCity()'>
     <ion-item>
       <ion-input label="Ville" label-placement="stacked" [(ngModel)]='city' name='city'
-        placeholder="Entrez une ville"></ion-input>
+      placeholder="Entrez une ville"></ion-input>
       <ion-button type="submit" slot="end">OK</ion-button>
       <ion-button type='button' slot="end" (click)="getWeatherByLocation()">
         <ion-icon name="pin"></ion-icon>
       </ion-button>
     </ion-item>
   </form>
-  <div *ngIf="weather">
-    <ion-title>{{weather.city.name}}</ion-title>
-    <app-meteo-card [weather]="w" *ngFor='let w of weather.list'></app-meteo-card>
-  </div>
+  @if (weather) {
+    <div>
+      <ion-title>{{weather.city.name}}</ion-title>
+      @for (w of weather.list; track w) {
+        <app-meteo-card [weather]="w"></app-meteo-card>
+      }
+    </div>
+  }
 </ion-content>

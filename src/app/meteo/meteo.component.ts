@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-inferrable-types */
 import { Component, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { NgIf, NgFor } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import {
   IonHeader,
@@ -24,8 +24,6 @@ import { pin } from 'ionicons/icons';
   selector: 'app-meteo',
   standalone: true,
   imports: [
-    NgIf,
-    NgFor,
     FormsModule,
     IonHeader,
     IonToolbar,
@@ -38,7 +36,7 @@ import { pin } from 'ionicons/icons';
     IonButton,
     IonIcon,
     MeteoCardComponent
-  ],
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './meteo.component.html',
   styleUrls: ['./meteo.component.scss']

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-inferrable-types */
 import { Component, inject, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
-import { NgIf } from '@angular/common';
+
 import { HttpResponse } from '@angular/common/http';
 import {
   IonHeader,
@@ -23,7 +23,6 @@ import { CatService } from '../services/cat.service';
   selector: 'app-cat',
   standalone: true,
   imports: [
-    NgIf,
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -36,7 +35,7 @@ import { CatService } from '../services/cat.service';
     IonButton,
     IonProgressBar,
     IonImg
-  ],
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './cat.component.html',
   styleUrls: ['./cat.component.scss']

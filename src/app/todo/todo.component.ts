@@ -1,5 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';
+
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
   IonHeader,
@@ -26,7 +26,6 @@ import { addCircle, checkmark, refresh, trash } from 'ionicons/icons';
   selector: 'app-todo',
   standalone: true,
   imports: [
-    NgFor,
     ReactiveFormsModule,
     IonHeader,
     IonToolbar,
@@ -42,7 +41,7 @@ import { addCircle, checkmark, refresh, trash } from 'ionicons/icons';
     IonItemSliding,
     IonItemOptions,
     IonItemOption
-  ],
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss']

@@ -1,24 +1,27 @@
 <ion-header>
   <ion-toolbar>
-  <ion-menu-button menu="sideMenu"></ion-menu-button>
+    <ion-menu-button menu="sideMenu"></ion-menu-button>
     <ion-title>Cats !</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <div *ngIf="httpOk">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>{{cat.breeds && "Petit chat"}}</ion-card-title>
-      </ion-card-header>
-      
-      <ion-card-content>
-        <ion-img [src]='cat.url'></ion-img>
-      </ion-card-content>
-    </ion-card>
-  </div>
+  @if (httpOk) {
+    <div>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{cat.breeds && "Petit chat"}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-img [src]='cat.url'></ion-img>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  }
   <ion-button (click)="refreshCat()">Un autre !</ion-button>
-  <ion-progress-bar *ngIf="!httpOk" type="indeterminate"></ion-progress-bar>
-  
+  @if (!httpOk) {
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  }
+
 </ion-content>
