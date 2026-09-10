@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-inferrable-types */
-import { Component, inject, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, inject, CUSTOM_ELEMENTS_SCHEMA, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { HttpResponse } from '@angular/common/http';
 import {
@@ -38,6 +38,7 @@ import { CatService } from '../services/cat.service';
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './cat.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./cat.component.scss']
 })
 export class CatComponent implements OnInit {

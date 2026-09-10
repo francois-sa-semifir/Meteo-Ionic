@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   IonApp,
@@ -23,6 +23,7 @@ import {
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: 'app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['app.component.scss']
 })
 export class AppComponent { }

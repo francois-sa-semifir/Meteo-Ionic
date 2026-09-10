@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
@@ -44,6 +44,7 @@ import { addCircle, checkmark, refresh, trash } from 'ionicons/icons';
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './todo.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {

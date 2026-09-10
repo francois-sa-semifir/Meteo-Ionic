@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-inferrable-types */
-import { Component, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, inject, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import {
@@ -39,6 +39,7 @@ import { pin } from 'ionicons/icons';
 ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './meteo.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./meteo.component.scss']
 })
 export class MeteoComponent {

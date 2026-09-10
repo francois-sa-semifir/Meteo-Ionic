@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-inferrable-types */
-import { Component, Input, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, Input, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 import {
   IonCard,
@@ -30,6 +30,7 @@ import {
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './meteo-card.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./meteo-card.component.scss']
 })
 export class MeteoCardComponent {
