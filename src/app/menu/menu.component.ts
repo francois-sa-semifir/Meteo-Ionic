@@ -1,20 +1,18 @@
-import { Component, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { MenuController } from '@ionic/angular/standalone';
+import { Component, inject } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 import {
   IonHeader,
   IonToolbar,
   IonTitle,
   IonContent,
   IonMenuButton
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
-  standalone: true,
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
   private menu = inject(MenuController);

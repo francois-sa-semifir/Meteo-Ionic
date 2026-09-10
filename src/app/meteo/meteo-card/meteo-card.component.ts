@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-inferrable-types */
-import { Component, Input, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 import {
   IonCard,
@@ -11,11 +11,10 @@ import {
   IonItem,
   IonThumbnail,
   IonLabel
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 
 @Component({
   selector: 'app-meteo-card',
-  standalone: true,
   imports: [
     TitleCasePipe,
     IonCard,
@@ -28,11 +27,9 @@ import {
     IonThumbnail,
     IonLabel
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './meteo-card.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrls: ['./meteo-card.component.scss']
+  styleUrl: './meteo-card.component.scss'
 })
 export class MeteoCardComponent {
-  @Input() weather: any;
+  weather = input<any>();
 }

@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-inferrable-types */
-import { Component, inject, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   IonHeader,
@@ -9,11 +8,10 @@ import {
   IonContent,
   IonMenuButton,
   IonItem,
-  IonLabel,
   IonInput,
   IonButton,
   IonIcon
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { MeteoService } from '../services/meteo.service';
 import { MeteoCardComponent } from './meteo-card/meteo-card.component';
 import { Geolocation } from '@capacitor/geolocation';
@@ -22,7 +20,6 @@ import { pin } from 'ionicons/icons';
 
 @Component({
   selector: 'app-meteo',
-  standalone: true,
   imports: [
     FormsModule,
     IonHeader,
@@ -31,16 +28,13 @@ import { pin } from 'ionicons/icons';
     IonContent,
     IonMenuButton,
     IonItem,
-    IonLabel,
     IonInput,
     IonButton,
     IonIcon,
     MeteoCardComponent
-],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  ],
   templateUrl: './meteo.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrls: ['./meteo.component.scss']
+  styleUrl: './meteo.component.scss'
 })
 export class MeteoComponent {
   private meteoService = inject(MeteoService);

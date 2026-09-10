@@ -1,5 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, ChangeDetectionStrategy } from '@angular/core';
-
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
   IonHeader,
@@ -12,11 +11,8 @@ import {
   IonInput,
   IonButton,
   IonIcon,
-  IonList,
-  IonItemSliding,
-  IonItemOptions,
-  IonItemOption
-} from '@ionic/angular/standalone';
+  IonList
+} from '@ionic/angular';
 import { Todo } from '../models/todo';
 import { Preferences } from '@capacitor/preferences';
 import { addIcons } from 'ionicons';
@@ -24,7 +20,6 @@ import { addCircle, checkmark, refresh, trash } from 'ionicons/icons';
 
 @Component({
   selector: 'app-todo',
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     IonHeader,
@@ -37,17 +32,12 @@ import { addCircle, checkmark, refresh, trash } from 'ionicons/icons';
     IonInput,
     IonButton,
     IonIcon,
-    IonList,
-    IonItemSliding,
-    IonItemOptions,
-    IonItemOption
-],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    IonList
+  ],
   templateUrl: './todo.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrls: ['./todo.component.scss']
+  styleUrl: './todo.component.scss'
 })
-export class TodoComponent implements OnInit {
+export class TodoComponent {
   todos: Todo[] = [];
   form: FormGroup;
 
@@ -57,9 +47,10 @@ export class TodoComponent implements OnInit {
       titre: new FormControl('', Validators.required),
       done: new FormControl(false)
     });
+    this.loadTodos();
   }
 
-  async ngOnInit() {
+  private async loadTodos() {
     const result = await Preferences.get({ key: 'todos' });
     this.todos = JSON.parse(result.value || '[]');
   }

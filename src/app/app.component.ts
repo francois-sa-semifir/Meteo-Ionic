@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   IonApp,
@@ -7,11 +7,10 @@ import {
   IonItem,
   IonMenuToggle,
   IonRouterOutlet
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [
     RouterLink,
     IonApp,
@@ -21,9 +20,7 @@ import {
     IonMenuToggle,
     IonRouterOutlet
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: 'app.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrls: ['app.component.scss']
+  styleUrl: 'app.component.scss'
 })
 export class AppComponent { }

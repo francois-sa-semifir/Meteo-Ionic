@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-inferrable-types */
-import { Component, inject, CUSTOM_ELEMENTS_SCHEMA, OnInit, ChangeDetectionStrategy } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import {
   IonHeader,
@@ -15,13 +14,12 @@ import {
   IonButton,
   IonProgressBar,
   IonImg
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { Cat } from '../models/cat';
 import { CatService } from '../services/cat.service';
 
 @Component({
   selector: 'app-cat',
-  standalone: true,
   imports: [
     IonHeader,
     IonToolbar,
@@ -35,29 +33,24 @@ import { CatService } from '../services/cat.service';
     IonButton,
     IonProgressBar,
     IonImg
-],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  ],
   templateUrl: './cat.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrls: ['./cat.component.scss']
+  styleUrl: './cat.component.scss'
 })
-export class CatComponent implements OnInit {
+export class CatComponent {
   private catApi = inject(CatService);
   httpOk: boolean = false;
   cat!: Cat;
 
-  ngOnInit() {
+  constructor() {
     this.catApi.getCat().subscribe((resp: HttpResponse<Cat[]>) => {
-      console.log(resp);
       this.httpOk = resp.ok;
       this.cat = resp.body![0];
     });
   }
 
   refreshCat() {
-    console.log('un autre !');
     this.catApi.getCat().subscribe((resp: HttpResponse<Cat[]>) => {
-      console.log(resp);
       this.httpOk = resp.ok;
       this.cat = resp.body![0];
     });
